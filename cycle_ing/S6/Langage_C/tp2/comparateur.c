@@ -1,3 +1,8 @@
+#include <time.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
 #include "comparateur.h"
 #include "rand.h" // Pour l'initialisation du tableau aléatoire
 #include "fonctions_sort.h" // Pour le type de tri
@@ -5,26 +10,36 @@
 
 
 
-void comparateur(int (*tab_fonctions[3])(int *tab, int premier, int dernier, int (*compare)(int, int))) {
+void comparateur(int (*tab_fonctions[])(int *tab, int premier, int dernier, int (*compare)(int, int)),
+                 unsigned int nb_fonctions,  int (*compare)(int, int)) {
 
     int size = 10;
     int tab[size];
+    double tab_time[nb_fonctions];
 
-    nb_fonctions = 3
-    int tab_time[nb_fonctions];
+    //  Définition d'un tableau qui sera une copie de tab. Ce qui permet
+    //  de le réinitialiser avec les valeurs de tab pour chaque fonction de tri
+    int *tab_to_sort = NULL;
+    tab_to_sort = (int *)malloc(size * sizeof(int));
+
 
     RandInit();
     InitTabRandom(tab, size, 0, 20);
 
-    for (int i = 0; i<nb_fonctions; i++) {
-        clock_t tic = clock();
-        tab_fonctions[i](tab, 0, size - 1, croissant)
-        clock_t tac = clock();
-        double time = tac - tic;
-        tab_time[i] = time
 
-    printTab(tab_time, nb_fonctions)
+
+    for (int i = 0; i<nb_fonctions; i++) {
+
+        // Copie du tableau initiale à trier
+        tab_to_sort = memcpy(tab_to_sort, tab, size* sizeof(int));
+        printTab(tab_to_sort, size);
+        // Horloge tac - tic
+        double tic = clock();
+        tab_fonctions[i](tab_to_sort, 0, size - 1, compare);
+        double tac = clock();
+        double time = tac - tic;
+        tab_time[i] = (time/ CLOCKS_PER_SEC);
 
     }
-
+    printTabTimer(tab_time, nb_fonctions);
 }
