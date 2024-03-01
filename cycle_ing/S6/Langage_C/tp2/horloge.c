@@ -3,14 +3,14 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "comparateur.h"
+#include "horloge.h"
 #include "rand.h" // Pour l'initialisation du tableau aléatoire
 #include "fonctions_sort.h" // Pour le type de tri
 #include "Tableau.h"
 
 
 
-void comparateur(int (*tab_fonctions[])(int *tab, int premier, int dernier, int (*compare)(int, int)),
+void horloge(int (*tab_fonctions[])(int *tab, int premier, int dernier, int (*compare)(int, int)),
                  unsigned int nb_fonctions,  int (*compare)(int, int), int size) {
 
     int tab[size];

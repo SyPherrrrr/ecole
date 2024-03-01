@@ -1,6 +1,6 @@
 
-// Fonction comparative
-void comparateur(int (*tab_fonctions[])(int *tab,int premier, int dernier, int (*compare)(int, int)),
+// de
+void horloge(int (*tab_fonctions[])(int *tab,int premier, int dernier, int (*compare)(int, int)),
                  unsigned int nb_fonctions, int (*compare)(int, int), int size);
 
 
