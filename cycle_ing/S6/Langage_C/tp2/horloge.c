@@ -11,9 +11,8 @@
 
 
 void comparateur(int (*tab_fonctions[])(int *tab, int premier, int dernier, int (*compare)(int, int)),
-                 unsigned int nb_fonctions,  int (*compare)(int, int)) {
+                 unsigned int nb_fonctions,  int (*compare)(int, int), int size) {
 
-    int size = 10;
     int tab[size];
     double tab_time[nb_fonctions];
 
@@ -32,7 +31,7 @@ void comparateur(int (*tab_fonctions[])(int *tab, int premier, int dernier, int 
 
         // Copie du tableau initiale à trier
         tab_to_sort = memcpy(tab_to_sort, tab, size* sizeof(int));
-        printTab(tab_to_sort, size);
+
         // Horloge tac - tic
         double tic = clock();
         tab_fonctions[i](tab_to_sort, 0, size - 1, compare);
@@ -41,5 +40,6 @@ void comparateur(int (*tab_fonctions[])(int *tab, int premier, int dernier, int 
         tab_time[i] = (time/ CLOCKS_PER_SEC);
 
     }
+    printTab(tab_to_sort, size);
     printTabTimer(tab_time, nb_fonctions);
 }
