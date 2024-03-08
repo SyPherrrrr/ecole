@@ -41,3 +41,10 @@ void printTab(int *tab, unsigned int size) {
         printf("Position : %d   valeur : %d\n",i,tab[i]);
     }
 }
+
+
+void printTabTimer(double *tab_time, unsigned int size) {
+    for (int i=0; i < (size);i++) {
+        printf("Le tri n°%d met  %f secondes. \n",i +1,tab_time[i]);
+    }
+}

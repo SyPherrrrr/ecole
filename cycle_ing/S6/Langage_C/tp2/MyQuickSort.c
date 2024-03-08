@@ -1,11 +1,6 @@
 #include <stdio.h>
 #include "MyQuickSort.h"
-
-void swap(int *a, int *b) {
-    int t = *a;
-    *a = *b;
-    *b = t;
-}
+#include "util.h"
 
 
 
