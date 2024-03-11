@@ -1,0 +1,182 @@
+---
+title: "Test traitement stat 2"
+output:
+html_notebook: default
+html_document:
+df_print: paged
+pdf_document: default
+---
+
+---
+Title     : Test - Statistical treatment 2
+Created by: Adame Naji
+Created on: 12/05/2021
+---
+
+# Exercice 1
+
+```{r}
+data <- read.table("vins.data")
+
+attach(data)
+summary(data)
+```
+
+## Partie 1.1 - Analyse 1D
+
+1 - Il y a 682 vins, c'est le nombre de lignes des colonnes V1 à V5 donnée par la fonction "summary".
+
+2 - On remarque que les sulphates sont l'élément le plus présent dans les données de vins.data.
+Toutes les variables ont des valeurs extrême par rapport à la moyenne, les plus petite valeurs sont à 1g par litre.
+```{r}
+acidite <- as.factor(data $ V1)
+mean(as.numeric(acidite), na.rm = TRUE)
+min(as.numeric(acidite))
+max(as.numeric(acidite))
+
+chlorides <- as.factor(data $ V2)
+mean(as.numeric(chlorides), na.rm = TRUE)
+min(as.numeric(chlorides))
+max(as.numeric(chlorides))
+
+sucre <- as.factor(data $ V3)
+mean(as.numeric(sucre), na.rm = TRUE)
+min(as.numeric(sucre))
+max(as.numeric(sucre))
+
+sulphates <- as.factor(data $ V4)
+mean(as.numeric(sulphates), na.rm = TRUE)
+min(as.numeric(sulphates))
+max(as.numeric(sulphates))
+
+
+```
+
+3 -
+```{r}
+plot(hist(as.numeric(sulphates)))
+```
+
+4 - On utilise Qqnorm pour tester la normalité de la variable "chlorides". Les points n'étant pas aligné, on ne peut pas
+dire que "chlorides" suis une loi normale
+```{r}
+# plot(hist(as.numeric(chlorides)))
+qqnorm(as.numeric(chlorides))
+```
+
+5 -
+```{r}
+mean(as.numeric(sucre))
+median(as.numeric(sucre))
+```
+
+6 - Il y a 661 vins sur 682 qui ont un degré d'alcool supérieur à 13
+```{r}
+alcool <- as.numeric(as.factor(data $ V5))
+sum(alcool > 13)
+```
+
+7 -
+```{r}
+intConf <- function(x) {
+  x <- na.omit(x)
+  m <- mean(x, na.rm = TRUE)
+  len <- length(x)
+  t <- qt(0.900, df=len-1)
+
+  sum <- 0
+  for (i in x) {
+    sum <- sum + (i - m)^2
+  }
+  s <- sqrt(sum / len)
+  intervalle <- c(m-(t*s / sqrt(len-1)), m+(t*s / sqrt(len-1)))
+
+  intervalle
+
+  return(intervalle)
+}
+
+intConf(as.numeric(sulphates))
+```
+
+8 -
+
+
+## Partie 1.2 - Analyse 2D
+
+1 - Il semblerait que les colonnes les mieux corrélés soient les colonnes V1 et V5
+```{r}
+
+data_2 <- data
+data_2 $ V1 <- as.factor(data_2 $ V1)
+data_2 $ V1 <- as.numeric(data_2 $ V1)
+
+data_2 $ V2 <- as.factor(data_2 $ V2)
+data_2 $ V2 <- as.numeric(data_2 $ V2)
+
+data_2 $ V3 <- as.factor(data_2 $ V3)
+data_2 $ V3 <- as.numeric(data_2 $ V3)
+
+data_2 $ V4 <- as.factor(data_2 $ V4)
+data_2 $ V4 <- as.numeric(data_2 $ V4)
+
+data_2 $ V5 <- as.factor(data_2 $ V5)
+data_2 $ V5 <- as.numeric(data_2 $ V5)
+
+cor(data_2)
+
+pairs(data_2)
+
+```
+
+2 -
+
+3 -
+
+4 -
+
+```{r}
+detach(data)
+```
+
+# Exercice 2
+```{r}
+data_exo2 <-read.table("films.data")
+```
+## Partie 2.1 - Analyse 1D
+
+1 - Il y a 99 films.
+```{r}
+summary(data_exo2)
+```
+
+2 - Il y a 74 directeurs différents.
+```{r}
+length(unique(data_exo2 $ V1))
+```
+
+3 -
+```{r}
+genre <- table(data_exo2 $ V2)
+genre
+```
+
+4 -
+```{r}
+action <- 43
+biograhy <- 7
+
+```
+
+## Partie 2.1 - Analyse 2D
+
+1 -
+
+2 -
+
+3-
+
+4 -
+```{r}
+detach(data_exo2)
+```

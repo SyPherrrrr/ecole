@@ -31,24 +31,34 @@ varriance <- function(x) {
 
 intervalle_confiance <- function(echantillon) {
 
-    n = length(echantillon)  
-    confiance = 0.95
-    dl = n-2  # Degré de liberté
-    alpha = 1 - confiance
+    # Nombre d'observations dans l'échantillon
+    n <- length(echantillon)
 
-    # Lecture dans la table de student
-    valeur_critique = qt(alpha/2, dl)
+    # Niveau de confiance (par exemple, 95%)
+    confiance <- 0.90
 
-    moyenne_echantillon = mean(echantillon, na.rm = TRUE)
-    ecart_type_echantillon = sd(echantillon, na.rm=TRUE)
+    # Degrés de liberté (n-1 pour un échantillon)
+    degres_liberte <- n - 1
 
-    erreur_standard_moyenne = ecart_type_echantillon/sqrt(n) 
+    # Valeur critique pour un intervalle à deux queues
+    alpha <- 1 - confiance
+    valeur_critique <- qt(confiance + alpha / 2, df = degres_liberte)
 
-    borne_inférieure = moyenne_echantillon - valeur_critique*erreur_standard_moyenne
-    borne_supérieure = moyenne_echantillon + valeur_critique*erreur_standard_moyenne
-    cat("borne_inférieure : ",borne_inférieure, "\n")
-    cat("borne_supérieure : ",borne_supérieure, "\n")
+    # Estimation de la moyenne et de l'écart-type de l'échantillon
+    moyenne_echantillon <- mean(echantillon, na.rm = TRUE)
+    ecart_type_echantillon <- sd(echantillon, na.rm = TRUE)
 
+    # Calcul de l'erreur standard de la moyenne (SEM)
+    erreur_standard_moyenne <- ecart_type_echantillon / sqrt(n)
+
+    # Calcul des bornes de l'intervalle de confiance
+    borne_inferieure <- moyenne_echantillon - valeur_critique * erreur_standard_moyenne
+    borne_superieure <- moyenne_echantillon + valeur_critique * erreur_standard_moyenne
+
+    # Affichage des résultats
+    cat("Intervalle de confiance à", confiance * 100, "% pour la moyenne :", "\n")
+    cat("Borne inférieure:", borne_inferieure, "\n")
+    cat("Borne supérieure:", borne_superieure, "\n")
 }
 
 
@@ -92,3 +102,18 @@ cramer <- function(f1, f2, K) {
     return (sqrt(khi2/(K*(min(nrow(table(f1,f2)), ncol(ncol(table(f1, f2)))) - 1))))
 }
 
+
+calculate_p_value <- function(variable,h0) {
+
+    sample_mean <- mean(variable)
+    sample_size <- length(variable)
+    population_mean <- h0
+    sample_sd <- sd(variable)
+
+    t_value <- (sample_mean - population_mean) / (sample_sd / sqrt(sample_size))
+    df <- sample_size - 1
+    p_value <- 2 * pt(abs(t_value), df = df, lower.tail = FALSE)
+
+    return(p_value)
+
+}

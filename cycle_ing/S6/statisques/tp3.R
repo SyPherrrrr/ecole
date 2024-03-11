@@ -56,7 +56,7 @@ pairs(df) # Nuage de points
 
 # Question 5 
 #SIGNIFICATIVÉ
-> cor.test(BPM,acousticness ) # p-value = 0.06027 > 0.05 donc on ne rejette pas H0 donc c'est pas significatif significatif
+> cor.test(BPM,acousticness ) # p-value = 0.06027 > 0.05 donc on ne rejette pas H0 donc c'est pas significatif
 # Faire avec toutes les corélations > 0.2
 # energy et acousticness => p-value = 1.083e-08 < 0.05 => on rejette H0 donc cest significatif
 

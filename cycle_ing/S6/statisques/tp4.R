@@ -81,7 +81,8 @@ Marque           A        B        C        D
 
 
 # Partie 2 : Inf ́erence de l’ ́echantillon vers la population
-# Question 1 
+# Question 1 : 
+pairs(vins)
 
 
 
