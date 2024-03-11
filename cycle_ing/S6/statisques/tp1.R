@@ -101,7 +101,7 @@ A B C D
 # Lecture d'un fichier (le mettre dans le projet)
 df <- read.table('USArrests.data')
 
-# Les fonctions getwd() et setwd() peuvent ˆetre utiles pour consulter et changer le r ́epertoire de travail.
+# Les fonctions getwd() et setwd() peuvent ˆetre utiles pour consulter et changer le repertoire de travail.
 > getwd()
 > setwd("Z:/monDossier/...")
 

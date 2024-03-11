@@ -1,0 +1,61 @@
+TP1  :
+
+Pour convertir en un autre type :
+as.numeric(x)
+as.character(x)
+as.logical(x)  //si cest 0 c'est false sinon cest true
+
+Convertir en facteur (variable catégorique)
+xf = factor(x)
+
+Lois de probablités :
+
+Densité de probabilité N(5,3)  => dnorm pour la densité
+x = seq(-10, 20, length=1000) # Grand vecteur
+density = dnorm(x, 5, 3) # fonction de densité
+plot(density, type="b", col = "blue")
+
+Calcul de P(0<X<12)  => pnorm(a, mean, sd) pour calculer P(X<a)
+pnorm(12,5,3) - pnorm(0,5,3)
+
+Calcul du 3e quartile => qnorm(p, mean, sd) avec p = {0.25, 0.5, 0.75} pour 1er, 2e, 3e quartile
+ qnorm(0.75, 5, 3)  ATTENTION CHIIFFRES A VIRGULES CEST UN POINT
+
+ Calcul Intervalle de confiance à 95% => (P(X<a) = 1,95/2) 
+ erreur = qnorm(1.95/2, 5, 3)
+intervalle = [5 - erreur * (ecart_type/sqrt(n)); 5 + erreur*(ecart_type/sqrt(n))] avec n la taille de l'échantillon
+
+Pour créer une fonction 
+Mafonction <- function(x,y) {
+    s = x + y
+    return(s)
+}
+
+Pour charger les fonctions en mémoire : 
+source("bibliothèque.R")
+
+
+
+
+TP 2 :
+
+Pour recupérer les data dans un df : 
+df = read.table("medical.data")
+
+Pour attacher à chaque nom de colonne un vecteur avec ses valeurs :
+attach(df)
+
+Indiquateurs unidimensionnels : 
+mean(taille, trim = 0.2, na.rm = TRUE)  // Trim pour exclure un pourcentage des valeurs extrèmes
+sd() 
+var()
+median() 
+quantile() => calcul d'un quartile
+IQR() => ecart inter quartile
+
+
+Représentations graphiques :
+boxplot(vecteur numérique) pour afficher boite à moustache
+pie(summary(variable catégorique))
+hist(sexe)
+
