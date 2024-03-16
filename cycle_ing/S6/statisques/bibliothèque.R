@@ -117,3 +117,5 @@ calculate_p_value <- function(variable,h0) {
     return(p_value)
 
 }
+
+
