@@ -1,0 +1,252 @@
+@import url(https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap);
+
+
+/* Police d'écriture pour toute la page */
+* {
+    font-family: 'Montserrat';
+}
+
+
+body {
+    margin: 0 auto
+}
+
+
+header.header img {   /* On prend tous les header et on selectionne celui avec le nom header puis l'image dans header */ 
+    width: 150px;
+}
+
+/* Box header avec l'image et la liste */
+header.header {
+    display: flex;
+    align-items: center;
+    padding: 25px;
+
+}
+
+section.top-page {
+    background: url("../images/bg.jpg");
+    background-size: cover;
+    height: 80vh;
+}
+
+/* Page d'acceuil */
+/* Placement et allignement boutton et titre */
+.landing-page {
+    padding: 70px 90px;
+}
+
+/* Boutton scroll */
+.scroll-down {
+    color: white;
+    text-decoration: none;  /* Enlever la barre sous le texte */
+    position: absolute;  /* Positionnement par rapport à la page  */
+    bottom: 300px;   
+}
+
+.big-title {
+    color: white;
+    font-size: 80px;
+    font-family: 'Abril FatFace';   /* Police d'écriture pour le titre */
+    font-weight: 100;   /* Modifier l'épesseur de l'écriture */
+}
+
+
+/* BARRE DE NAVIGATION*/
+/* Box contenant que les éléments de la liste */
+nav.nav {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    width: 400px; 
+    margin-left: 100px;
+}
+
+/* Pour chaque élément de la liste */
+nav.nav li {
+    color: white;
+    list-style: none;
+}
+
+
+/* SERVICES */
+/* Box avec tous les icons + les textes */
+.service {
+    display: flex;
+    justify-content: space-evenly; 
+}
+
+/* Box pour chaque icon avec son texte */
+.service-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    font-family: 30px ;
+
+}
+
+/* Pour la couleur et la taille des icons */
+.delivery-icon {
+    font-size: 50px;
+    color: #add981;
+}
+
+
+.service-details {
+    font-weight: 700;
+    width: 200px;
+    text-align: center; 
+}
+
+
+
+/* BEST ITEMS */
+
+.best-items {
+    margin: 60px;
+}
+
+.section-title {
+    font-size: 50px;
+    font-family: 'Abril FatFace';
+    font-weight: 100;
+    position: relative;     /* Pour placer le trait en dessous avec le bottom 0; pour que ça marche   */
+
+}
+
+.section-title::before {
+    content: "";
+    position: absolute;
+    background-color: #add981;
+    width: 50px;
+    height: 7px;
+    border-radius: 3.5px;
+    bottom: 0;
+}
+
+
+/* Box avec toutes les plantes */
+.best-plants {
+    min-height: 500px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;   /* Pour adapter les images quand la page se rétrécit  */
+}
+
+/* Box pour chaque plante */
+.plant-box {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+}
+
+
+.no-grid {
+    min-width: 350px;
+    height: 500px;
+    flex: 1;    /* pour prendre toute la place sur l'écran*/
+}
+
+.plant1 {
+    background-image: url(../images/nos_meilleures_ventes/1.jpg);
+}
+
+.plant2 {
+    background-image: url(../images/nos_meilleures_ventes/2.jpg);
+}
+
+.plant3 {
+    background-image: url(../images/nos_meilleures_ventes/3.jpg);
+}
+
+.plant4 {
+    background-image: url(../images/nos_meilleures_ventes/4.jpg);
+}
+
+/* Box avec le prix et le nom de la plante */
+.plant-details {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    background-color: #FFFFFFDF;
+    padding: 5px  20px;
+}
+
+.plant-name {
+    color: black;
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 3px;
+}
+
+.plant-price {
+    color: #add981;
+    font-weight: 800;
+    line-height: 3px;
+    font-size: 14px;
+}
+
+
+/* TOUTES LES PLANTES */
+
+.all-plants {
+    margin: 60px;
+}
+
+.plant-grid {
+    display: grid;
+    min-height: 950px;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 400px);
+
+}
+
+.plant-grid1 {
+    background-image: url(../images/nos_plantes/1.jpg);
+    grid-column: 1/3;
+    grid-row: 1/3;
+}
+
+.plant-grid2 {
+    background-image: url(../images/nos_plantes/2.jpg);
+    grid-column: 3/5;
+}
+
+.plant-grid3 {
+    background-image: url(../images/nos_plantes/3.jpg);
+    grid-column: 3/5;
+}
+
+.plant-grid4 {
+    background-image: url(../images/nos_plantes/4.jpg);
+    grid-column: 1;
+    grid-row: 3/5;
+}
+
+.plant-grid5 {
+    background-image: url(../images/nos_plantes/5.jpg);
+    grid-column: 2/4;
+    grid-row: 3/5;
+}
+
+.plant-grid6 {
+    background-image: url(../images/nos_plantes/6.jpg);
+    grid-column: 4;
+    grid-row: 3/5;
+
+}
+
+
+/* Pied de page */
+
+.footer {
+    display: flex;
+    margin: 60px;
+    font-weight: 700;
+}
+
+.cgv {
+    margin-left: auto;
+}
