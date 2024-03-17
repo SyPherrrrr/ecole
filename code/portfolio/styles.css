@@ -1,0 +1,50 @@
+
+/* Police d'écriture pour toute la page */
+* {
+    font-family: Comic Sans MS, Comic Sans, cursive;
+    margin: 0;
+    padding: 0;
+}
+
+
+/* PARTIE NAV  */
+
+
+/* Box avec Le titre Elias BOUSSAOUI et la barre de navigation */
+header.nav {
+    background-color: antiquewhite;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 25px;
+}
+
+.title {
+    font-weight: 900;
+    max-width: 800px;
+}
+
+.list {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 160px;
+    width: 400px;
+    list-style: none;
+    font-size: 23px;
+}
+
+/* Pour enlever le soulignement sur les liens de la barre de navigation */
+.scroll-down {
+    color: black;
+    text-decoration: none; 
+}
+
+
+/*  TOP PAGE  */
+.top-page {
+    background-color: blue;
+}
+
+.top-page.img {
+    border-radius: 50%;
+}

@@ -8,3 +8,10 @@
 | Loi de Student       | dt(x, df)               | pt(q, df)                   | qt(p, df)              | rt(n, df)                     |
 | Loi du χ² (khi2)     | dchisq(x, df)           | pchisq(q, df)               | qchisq(p, df)          | rchisq(n, df)                 |
 | Loi Exponentielle    | dexp(x, rate)           | pexp(q, rate)               | qexp(p, rate)          | rexp(n, rate)                 |
+
+| Valeur de Cramer | Intensité de la Relation entre Variables       |
+|-------------------|---------------------------------------------|
+| < 0,10            | Relation Nulle ou Très Faible               |
+| >= 0,10 et < 0,20 | Relation Faible                             |
+| >= 0,20 et < 0,30 | Relation Moyenne                            |
+| >= 0,30           | Relation Forte                              |
