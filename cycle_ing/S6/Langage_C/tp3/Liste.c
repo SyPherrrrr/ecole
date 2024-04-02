@@ -140,3 +140,5 @@ SCell* GetNextElement(SCell *cell) {
 Data GetData(SCell *cell) {
     return (cell->value);
 }
+
+void SupprimerCEll(
