@@ -145,9 +145,11 @@ void EnregistrerAnnuaire(SAnnuaire *annuaire, const char *fichier) { // const = 
     }
 }
 
-
 // Question 8 : Créer une fonction LireAnnuaire prenant en paramètre un nom de fichier. Cette fonction crée un
 //nouvel annuaire et l'initialise avec les données contenues dans le fichier (créé précédemment par la
 //fonctionEnregistrerAnnuaire).
 
 
+void LireAnnuaire(const char *fichier){
+    for (int i=0)
+}
