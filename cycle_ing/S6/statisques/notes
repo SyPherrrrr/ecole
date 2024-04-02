@@ -59,3 +59,26 @@ boxplot(vecteur numérique) pour afficher boite à moustache
 pie(summary(variable catégorique))
 hist(sexe)
 
+# Remove les nulles
+mean(taille, na.rm=TRUE)
+var(taille, na.rm=TRUE)
+sd(taille, na.rm=TRUE)
+median(taille, na.rm=TRUE)
+quantile(taille, na.rm=TRUE)
+IQR(taille, na.rm=TRUE)
+summary(taille, na.rm=TRUE) #plus rapide
+
+
+
+# Tous les tests 
+
+shapiro.test(taille) # Testez la normalite des variables
+t.test(taille, mu = 175) # test esperance    
+var.test(hydrat~formule) # comparaison de 2 variances
+prop.test(table(sexe)) # test frequence 
+cor(x, t, method="pearson") # test de correlation
+cor(x, t, method="spearman") # -0.05579328
+cor(x, t, method="kendall") # -0.1333333
+chisq.test(Marque, Ecran) # test d'indépendance chi2
+t.test(hydrat~formule, var.equal=TRUE) # comparaison de deux échantillons student
+t.test(elastic~formule) # comparaison de deux échantillons welch
