@@ -59,11 +59,11 @@ async function loadGenres() {
 
     loadArtists(genre[0]); // Permet de charger les données dès le permier chargement de la page (hors sélection d'un genre)
 
-
 }
 
 
 loadGenres();
+
 
 
 async function loadArtists(genre) {
@@ -117,6 +117,7 @@ async function loadArtists(genre) {
 
         // création du boutton
         a.href = "#";
+        a.id = artist.name;
 
         //Gestion de l'arborescence 
         a.appendChild(h3);
@@ -124,9 +125,33 @@ async function loadArtists(genre) {
         li.appendChild(img);
         ul.appendChild(li);
 
+
+        // Partie 2 : chargement des albums
+
+        a.addEventListener("change",artistSelected(a.id));
+
     });
 
 
 
+        
+
 }
 
+
+// Fonction qui permet de charger les albums de l'artiste cliqué
+async function  artistSelected( id_artist ) {
+
+
+
+    let tab_albums = {}
+    try {
+        const reponse = await fetch("http://localhost:3000/artists/"+id_artist+"/albums");
+        const tab_album = await reponse.json;
+        tab_albums = tab_album;
+        console.log(tab_albums);
+    } catch(erreur) {
+        console.log(erreur);
+    }
+    
+}
