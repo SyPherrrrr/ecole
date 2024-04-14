@@ -35,6 +35,29 @@ header{
 
 #main ul{
   padding : 0;
+  margin-top: 2em;
+  display: flex;
+}
+
+#main ul li {
+  list-style: none;
+  margin-right: 2em;
+  padding: 0 1em 0 1em;
+  border: 2px solid lightgray;
+}
+
+#main ul li h3 {
+  text-align: center;
+}
+
+#main ul li a {
+  text-decoration: none;
+  color:darkcyan;
+}
+
+#main ul li img {
+  max-width: 280px;
+  max-height: 280px;
 }
 
 #main form, #main nav > p{
@@ -52,6 +75,31 @@ header{
   padding-bottom: 0.5em
 }
 
+#albums h2 {
+  background-color: darkcyan;
+  color: white;
+  margin-top: 0;
+}
+
+#albums table img {
+  width: 80px;
+  height: 80px;
+}
+
+#albums th, td {
+  padding: 0 1em 0 1em;
+}
+
+.show_aside {
+  visibility: visible !important;
+  opacity: 1 !important;
+  transition: all 1s ease-out;
+}
+
+.remove_aside {
+  transition: all 1s ease-out;
+}
+
 footer{
   text-align: center;
   padding: 0.5em 0;
@@ -59,3 +107,4 @@ footer{
   background: black;
   color: white;
 }
+
