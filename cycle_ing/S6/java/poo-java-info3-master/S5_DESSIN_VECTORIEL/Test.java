@@ -3,9 +3,9 @@ import java.awt.* ;
 
 
 class MaFenetre extends JFrame {
-    MaFenetre(Rectangle r){
-	setSize(320,200+50);
-	setContentPane(new Paneau(r)) ;
+    MaFenetre(Figure f){
+	setSize(500,500);
+	setContentPane(new Paneau(f)) ;
     }
 }
 
@@ -15,16 +15,16 @@ class MaFenetre extends JFrame {
 
 class Paneau extends JPanel {
 
-    Rectangle p ;
+    Figure f ;
 
-    Paneau(Rectangle p){
-	this.p=p ;
+    Paneau(Figure f){
+	this.f=f ;
     }
 
     @Override
     public void paintComponent (Graphics g){
 	if (g instanceof Graphics2D)
-	    p.draw((Graphics2D) g) ;
+	    f.draw((Graphics2D) g) ;
 	else throw new RuntimeException();
     }
     
@@ -37,7 +37,9 @@ class Test {
 
     public static void main(String[] args){
 
-	MaFenetre fen = new MaFenetre(new Rectangle(10, 10, 100 , 50)) ;
+	MaFenetre fen = new MaFenetre(new BoldFigure(new BasicStroke((float) 3), new Cercle(0, 0, 200, 200), new Cercle(0, 0, 100, 100),
+            new Rectangle(100, 100, 200, 200)) {
+    }) ;
 	fen.setVisible(true);
 	fen.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
