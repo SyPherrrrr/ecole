@@ -28,7 +28,8 @@ public class Test {
         rennesList.add(new Pair("Nantes", 1.05));
         hashmap.put("Rennes", rennesList);
 
-        // Faut juste completer les villes restantes
+            
+
 
         Carte carte = new Carte(hashmap);
         System.out.println(carte);
