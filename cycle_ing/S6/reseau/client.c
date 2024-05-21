@@ -28,13 +28,12 @@ int createSocket(int port_A, int port_B, char *ip, int first)
 	sock_C = socket(PF_INET, SOCK_DGRAM, 0);
 	perror("socket");
 
-	// Structure d'adresse du serveur, client et pour représenter une famille d'@, une @ip et un port
+	// Structure d'adresse du serveur, du client. ça représente une famille d'@, une @ip et un port
 	struct sockaddr_in sa_S, sa_C, sa_R;
 	
 	unsigned int taille_sa_S, taille_sa_C;
 	
 	char message[10];
-
 
 
 	/* @IP et n� port Server */
@@ -50,7 +49,7 @@ int createSocket(int port_A, int port_B, char *ip, int first)
 
     /* @IP et n� port Client */
 	bzero((char*) &sa_C, sizeof(sa_C));
-	sa_C.sin_family      = AF_INET;
+	sa_C.sin_family		 = AF_INET;
 	sa_C.sin_addr.s_addr = inet_addr( ip );
 	sa_C.sin_port        = htons( port_B );
 
@@ -64,7 +63,7 @@ int createSocket(int port_A, int port_B, char *ip, int first)
 	/* emission vers le serveur (a partir du client) */
 	taille_sa_S = sizeof( struct sockaddr );
     taille_sa_C = sizeof( struct sockaddr );
-	
+
     while (1) {
     	// Si c'est le premier tour
         if (first) {

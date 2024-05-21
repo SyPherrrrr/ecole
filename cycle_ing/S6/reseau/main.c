@@ -19,4 +19,4 @@ int main(int argc, char * argv[])
 // Pour compiler et executer
 //gcc -Wall -o executable main.c
 // Ouvrir un autre terminal et mettre : ./executable 8001 8000 0
-// Dans le premier terminal mettre : ./executable 8000 8001 1
+// Dans le premier terminal mettre : ./executable 80 00 8001 1
