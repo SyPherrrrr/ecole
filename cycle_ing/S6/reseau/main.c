@@ -1,4 +1,5 @@
 #include "client.c"
+#include "tcp.c"
 #include <stdio.h>
 
 int main(int argc, char * argv[])
@@ -11,7 +12,7 @@ int main(int argc, char * argv[])
     // atoi permet de convertir une chaine en un int
     printf("%i %i %s %i \n", atoi(argv[1]), atoi(argv[2]), ip, atoi(argv[3]));
 
-    createSocket(atoi(argv[1]), atoi(argv[2]), ip, atoi(argv[3]));
+    createServeur(atoi(argv[1]), atoi(argv[2]), ip, atoi(argv[3]));
 
     return 0;
 }
