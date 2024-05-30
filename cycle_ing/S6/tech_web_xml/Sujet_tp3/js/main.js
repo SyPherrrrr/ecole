@@ -168,7 +168,7 @@ async function artistSelected(id_artist) {
             // Supprimer les données du popup
             const tbody = document.querySelector("tbody");
             while (tbody.firstChild) {
-            tbody.removeChild(tbody.firstChild);
+                tbody.removeChild(tbody.firstChild);
             }
 
             // Fermeture du popup

@@ -70,7 +70,7 @@ shapiro.test(taille) # Résultat 0.2151, comme supérieure à 0.05 on ne peut pa
 shapiro.test(poids)  # Résultat : 0.3475 -> suit une distribution normale
 
 #Question 2
-# H0 : 
+# H0 :  
 t.test(taille,mu=175) # test avec une valeur de moyenne de 1,75m pas dans l'intervalle de confiance -> p-value = 0.005329 < 5% donc on rejette H0 donc pas de disrtibution de student
 t.test(taille,mu=168) # test avec une valeur moyenne de 1,68m qui est dans l'intervalle de confiance -> p-value = 0.9234 > 5% donc on ne rejette pas H0 mais on ne pas conclure sur la véracité de cette distribution
 
