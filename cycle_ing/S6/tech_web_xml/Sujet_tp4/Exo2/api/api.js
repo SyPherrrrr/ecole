@@ -3,11 +3,12 @@
 // import du module Express
 let express = require('express');
 let app = express();
-const db = require('./api/data/db.json');
+const db = require('./data/db.json');
 
-app.get('/genres/', (req, res) => {
+app.get('/genres', async (req, res) => {
 
-    const genres = JSON.stringify(db.genres);
+    const genres = await JSON.stringify(db.genres);
+    
 
     res.set('Content-Type', 'application/json');
 
@@ -20,7 +21,7 @@ app.get('/genres/', (req, res) => {
 app.get('/genres/:genreId/artists', (req, res) => {
 
     const artists = db.artists.filter((elem) => elem.genreId === req.params.genreId);
-
+    console.log(db.artists);
     res.set('Content-Type', 'application/json');
 
     res.send(artists);
